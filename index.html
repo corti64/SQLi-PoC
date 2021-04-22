@@ -11,6 +11,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
@@ -21,24 +22,34 @@
             <div class="row">
               <div class="col-9">
                 <input
-                  type="search"
-                  placeholder="Type an input ..."
+                  type="email"
+                  placeholder="Enter email"
                   class="form-control"
-                  id="user-input"
-                  autocomplete="off"
-                />
+                  id="email-input"
+                  autocomplete="off"             
+                />             
+                <input
+                type="password"
+                placeholder="Password"
+                class="form-control"
+                id="password-input"
+                autocomplete="off"
+              />
               </div>
               <div class="col-3">
                 <input
                   type="submit"
-                  value="search"
+                  value="Submit"
                   class="btn btn-primary w-100"
                 />
+                <small id="emailHelp" class="form-text text-muted">We'll never share your credentials with anyone else.</small>   
               </div>
             </div>
           </form>
+          <br>
           <div class="overview">
             <h1 id="Table">Appended SQL Request Table</h1>
+            <br>
             <ul>
               <li>Last updated: <span id="date"></span></li>
       

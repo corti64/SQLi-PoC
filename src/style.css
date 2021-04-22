@@ -22,7 +22,7 @@ body {
   
   li:first-letter {
     text-transform: capitalize;
-  } /** this capitalizes only the first letter in a list element **/
+  } /**  capitalize only the first letter in list element **/
   
   ul {
     margin: 0;
