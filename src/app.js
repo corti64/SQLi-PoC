@@ -7,7 +7,7 @@ const axios = require('axios');
    var arrHead = new Array(); // this is an array structure and we're putting things into that array structure (per next line down)
     arrHead = ['', 'Username', 'Password'];      // array at index 0 is '', array at index 1 is username and array at index 2 is password. //SIMPLY ADD OR REMOVE VALUES IN THE ARRAY FOR TABLE HEADERS.
    
-    // ADD A NEW ROW TO THE TABLE.s
+    // ADD A NEW ROW TO THE TABLE. 
 
 
   function addRow() {
