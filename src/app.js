@@ -1,6 +1,4 @@
-//My front-end code, hosted on Apache Web Server
-
-//Set axios variable, this inputs the Axios library
+//My front-end code, hosted on Apache Web Server.
 
     // ARRAY FOR HEADER.
    var arrHead = new Array(); // this is an array structure and we're putting things into that array structure (per next line down)
@@ -14,10 +12,9 @@
         //var parentDOM = document.getElementById('search-form');//establish hierarchy because cant grab an ID immediately if its under the top level ID
    
         var rowCount = appendTab.rows.length; //this variable gets the length of the table rows. 
-        var tr = appendTab.insertRow(rowCount);      // TABLE ROW. we're inserting a row into the Table 'appendTable' ....// what this is saying is insert row at the end of the table
-        //tr = appendTab.insertRow(rowCount); //I dont think this row is needed DELETE
+        var tr = appendTab.insertRow(rowCount);      // TABLE ROW. Here, we're inserting a row into the Table 'appendTable' ....// so what this is saying is: "insert row at the end of the table" 
 
-        for (var c = 0; c < arrHead.length; c++) {  //What this is saying is:   starting at zero until the value of c is less than the length of the table rows ... then after each 'FOR' loop is done increment the value of c by 1. So, while C is less than 3 
+        for (var c = 0; c < arrHead.length; c++) {  //What this is saying is: Starting at zero until the value of c is less than the length of the table rows ... then after each 'FOR' loop is done increment the value of c by 1. So, while C is less than 3 
             var td = document.createElement('td');          // TABLE DEFINITION.
             td = tr.insertCell(c); 
 
@@ -37,14 +34,13 @@
             else {
                 if (c == 1) {
                     var values = document.getElementById('email-input').value;
-                    //var values = parentDOM.getElementById('email-input').value; DELETE
+ 
 
                     var user = values;
                     //Here, I want to save the username value and password value into two distinct variables so I can pass them into a function that can send them to the back end.
                 }
                 if (c == 2) {
                     var values = document.getElementById('password-input').value;
-                    //var values = parentDOM.getElementById('password-input').value; DELETE
 
                     var password = values;
                 
@@ -55,21 +51,21 @@
                 // CREATE AND ADD TEXTBOX IN EACH CELL.
                 var ele = document.createElement('LABEL');
                 ele.setAttribute('type', 'text');
-                //  ele.setAttribute('text', '1');   CAN DELETE
+
                 ele.innerHTML = values;
                 td.appendChild(ele);
 
             }
         }
         sendToBackEndNodeJS(user, password);
-        //should be able to send user and password successfully to back-end.
+        //With this function, the app should be able to send username and password successfully to back-end.
 
     };
 
-     // DELETE TABLE ROW.
+     // FUNCTION TO DELETE TABLE ROW.
      function removeRow(oButton) {
       var appendTab = document.getElementById('appendTable');
-      appendTab.deleteRow(oButton.parentNode.parentNode.rowIndex);       // BUTTON -> TD -> TR. DELETE COMMENT
+      appendTab.deleteRow(oButton.parentNode.parentNode.rowIndex);       // BUTTON -> TD -> TR 
   }
 
 function sendToBackEndNodeJS(username, password) {
@@ -79,7 +75,7 @@ function sendToBackEndNodeJS(username, password) {
       'Content-Type': 'application/json',
     }
   }
-  //here, setting the JSON header for the HTTP POST request
+  //Here, setting the JSON header for the HTTP POST request
   
   axios.post('http://127.0.0.1:3000', { // Local Testing
     user: username,
@@ -89,7 +85,7 @@ function sendToBackEndNodeJS(username, password) {
       //I just want the body of the HTML request.
       alert(response.data)
   })
-  //here, we're connecting to PORT 3000 on the local host to connect to the NodeJS app (e.g., the back-end code)
+  //Here, we're connecting to PORT 3000 on the local host to connect to the NodeJS app (e.g., the back-end code)
   
   .catch(error => {
         console.log(error.response)
