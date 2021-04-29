@@ -11,11 +11,14 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>  
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- ........don't want to download and host jQuery self, so included it from a CDN; Google hosts JQuery--> 
+    <!--- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> --><!--temp script input DELETE IF DOESNT WORK-->
+    <script src="./src/app.js"></script>
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
-    <div class="container">
+    <div class="container"> 
       <div class="app-wrapper">
         <div class="sqli-app">
           <form id="search-form" class="mb-3">
@@ -23,14 +26,14 @@
               <div class="col-9">
                 <input
                   type="email"
-                  placeholder="Enter email"
+                  placeholder="Enter your email"
                   class="form-control"
                   id="email-input"
                   autocomplete="off"             
                 />             
                 <input
                 type="password"
-                placeholder="Password"
+                placeholder="Enter your password"
                 class="form-control"
                 id="password-input"
                 autocomplete="off"
@@ -39,20 +42,41 @@
               <div class="col-3">
                 <input
                   type="submit"
-                  value="Submit"
+                  value="Submit" 
                   class="btn btn-primary w-100"
+                  id="add-row"
+                  onclick="addRow()"
                 />
                 <small id="emailHelp" class="form-text text-muted">We'll never share your credentials with anyone else.</small>   
               </div>
             </div>
           </form>
           <br>
+          <div class="response-table">
+            <h1 id="table-title">Responses Go Here</h1>
+            <!--new table START-->
+                <table id="appendTable" class="table table-bordered table-hover table-striped">
+                    <thead>
+                    <tr>
+                    <th></th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Farts</th>
+                    </tr>
+                    <tbody>
+                      <tr>
+                      </tr>
+                      </tbody>
+                    </table>
+            <!--new table END-->
+            
+            
+          </div>
           <div class="overview">
-            <h1 id="Table">Appended SQL Request Table</h1>
+            <h1 id="table">Appended SQL Request Table</h1>
             <br>
             <ul>
               <li>Last updated: <span id="date"></span></li>
-      
         <small>
           <a href="https://github.com/corti64/SQLi-PoC"
             >Open-source code</a
@@ -60,6 +84,6 @@
         </small>
       </div>
     </div>
-    <script src="src/app.js"></script>
+
   </body>
 </html>
