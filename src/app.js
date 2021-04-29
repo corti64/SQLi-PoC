@@ -1,7 +1,6 @@
 //My front-end code, hosted on Apache Web Server
 
 //Set axios variable, this inputs the Axios library
-const axios = require('axios');
 
     // ARRAY FOR HEADER.
    var arrHead = new Array(); // this is an array structure and we're putting things into that array structure (per next line down)
@@ -38,14 +37,14 @@ const axios = require('axios');
             else {
                 if (c == 1) {
                     var values = document.getElementById('email-input').value;
-                    //var values = parentDOM.getElementById('email-input').value;
+                    //var values = parentDOM.getElementById('email-input').value; DELETE
 
                     var user = values;
                     //Here, I want to save the username value and password value into two distinct variables so I can pass them into a function that can send them to the back end.
                 }
                 if (c == 2) {
                     var values = document.getElementById('password-input').value;
-                    //var values = parentDOM.getElementById('password-input').value;
+                    //var values = parentDOM.getElementById('password-input').value; DELETE
 
                     var password = values;
                 
@@ -56,7 +55,7 @@ const axios = require('axios');
                 // CREATE AND ADD TEXTBOX IN EACH CELL.
                 var ele = document.createElement('LABEL');
                 ele.setAttribute('type', 'text');
-                //  ele.setAttribute('text', '1');
+                //  ele.setAttribute('text', '1');   CAN DELETE
                 ele.innerHTML = values;
                 td.appendChild(ele);
 
@@ -66,6 +65,12 @@ const axios = require('axios');
         //should be able to send user and password successfully to back-end.
 
     };
+
+     // DELETE TABLE ROW.
+     function removeRow(oButton) {
+      var appendTab = document.getElementById('appendTable');
+      appendTab.deleteRow(oButton.parentNode.parentNode.rowIndex);       // BUTTON -> TD -> TR. DELETE COMMENT
+  }
 
 function sendToBackEndNodeJS(username, password) {
   //rest of axios code from my test code here

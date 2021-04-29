@@ -12,7 +12,7 @@
       crossorigin="anonymous"
     />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>  
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- ........don't want to download and host jQuery self, so included it from a CDN; Google hosts JQuery--> 
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- ........don't want to download and host jQuery self, so included it from a CDN; Google hosts JQuery, all good--> 
     <!--- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> --><!--temp script input DELETE IF DOESNT WORK-->
     <script src="./src/app.js"></script>
     <link rel="stylesheet" href="src/style.css" />
@@ -21,7 +21,7 @@
     <div class="container"> 
       <div class="app-wrapper">
         <div class="sqli-app">
-          <form id="search-form" class="mb-3" onsubmit="return false">
+          <form id="search-form" class="mb-3" onsubmit="return false"> <!--input validation now working with addition of return false onsubmit-->
             <div class="row">
               <div class="col-9">
                 <input
@@ -54,14 +54,14 @@
           <br>
           <div class="response-table">
             <h1 id="table-title">Responses Go Here</h1>
-            <!--new table START-->
+            <!--Query Records Table START-->
                 <table id="appendTable" class="table table-bordered table-hover table-striped">
                     <thead>
                     <tr>
-                    <th></th>
+                    <th>Action</th>
                     <th>Username</th>
                     <th>Password</th>
-                    <th>Farts</th>
+<!--                    <th>Detail</th> DELETE-->
                     </tr>
                     <tbody>
                       <tr>
@@ -73,10 +73,10 @@
             
           </div>
           <div class="overview">
-            <h1 id="table">Appended SQL Request Table</h1>
+          <!--  <h1 id="table">Appended SQL Request Table</h1> DELETE LINE --->
             <br>
             <ul>
-              <li>Last updated: <span id="date"></span></li>
+            <!-- <li>Last updated: <span id="date"></span></li> DELETE --> 
         <small>
           <a href="https://github.com/corti64/SQLi-PoC"
             >Open-source code</a
