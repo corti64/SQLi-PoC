@@ -1,3 +1,8 @@
+//My front-end code, hosted on Apache Web Server
+
+//Set axios variable, this inputs the Axios library
+const axios = require('axios');
+
     // ARRAY FOR HEADER.
    var arrHead = new Array(); // this is an array structure and we're putting things into that array structure (per next line down)
     arrHead = ['', 'Username', 'Password'];      // array at index 0 is '', array at index 1 is username and array at index 2 is password. //SIMPLY ADD OR REMOVE VALUES IN THE ARRAY FOR TABLE HEADERS.
@@ -34,11 +39,15 @@
                 if (c == 1) {
                     var values = document.getElementById('email-input').value;
                     //var values = parentDOM.getElementById('email-input').value;
-                
+
+                    var user = values;
+                    //Here, I want to save the username value and password value into two distinct variables so I can pass them into a function that can send them to the back end.
                 }
                 if (c == 2) {
                     var values = document.getElementById('password-input').value;
                     //var values = parentDOM.getElementById('password-input').value;
+
+                    var password = values;
                 
                 }
 
@@ -50,8 +59,36 @@
                 //  ele.setAttribute('text', '1');
                 ele.innerHTML = values;
                 td.appendChild(ele);
+
             }
         }
-    }
+        sendToBackEndNodeJS(user, password);
+        //should be able to send user and password successfully to back-end.
 
- 
+    };
+
+function sendToBackEndNodeJS(username, password) {
+  //rest of axios code from my test code here
+  var config = {
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  }
+  //here, setting the JSON header for the HTTP POST request
+  
+  axios.post('http://127.0.0.1:3000', { // Local Testing
+    user: username,
+    password: password,
+  }, config).then(response => { 
+      console.log(response.data)
+      //I just want the body of the HTML request.
+      alert(response.data)
+  })
+  //here, we're connecting to PORT 3000 on the local host to connect to the NodeJS app (e.g., the back-end code)
+  
+  .catch(error => {
+        console.log(error.response)
+  });
+  //rest of this is just error handling, so if there's a POST error, it gets logged.
+  //this is saying: if there is an error --> Don't crash, do SOMETHING!
+}

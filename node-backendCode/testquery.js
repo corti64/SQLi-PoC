@@ -1,4 +1,4 @@
-// Local Testing
+// Local Testing, TODO incorporate into app.js 
 const axios = require('axios')
 
 var config = {

@@ -1,4 +1,5 @@
-// NPM Library Inclusions!
+    //My server-side code, my back-end
+    // NPM Library Inclusions!
 const mysql = require('mysql'); // To make MySQL Connections : 
 const { makeDb } = require('mysql-async-simple'); // Lib to solve the async issues with MySql : https://github.com/hashgit/mysql-async-simple
 const express = require('express'); // To do different things depending on where the user visits : https://www.npmjs.com/package/express
