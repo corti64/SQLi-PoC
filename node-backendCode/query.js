@@ -17,13 +17,9 @@ app.post('/', async function (req, res) { // For HTTP POST Requests:
 	console.log(mysqlresponse);
 	await res.send(mysqlresponse); // Send the mysqlresponse value.
 });
-
-
 app.get('/', (req, res) => {
 	res.send('Please HTTP POST JSON: {"user":"username","password":"password"} and ensure you are using Content-Type: application/json')
 })
-
-
 async function mysqlwork(user, password) { // Must by asynchronous, otherwise the function returns before the query is complete! 
 	// MySQL Setup
 	const con = mysql.createConnection({host: "localhost", user: "root", password: "MF1AiPELlmXu", database: "users"});
@@ -40,14 +36,14 @@ async function mysqlwork(user, password) { // Must by asynchronous, otherwise th
 		await db.close(con);
 	}
 	try{ // TODO: Support multiple entries so that we can print all values maybe?
-		return "User: " + result[0].name + " logged in with Password: " + result[0].password +  ".\n" + querystring;
+		if (typeof result[0].name !== 'undefined' && typeof result[0].name !== 'undefined'){
+			return "User: " + user  + " logged in with Password: " + password +  ".\n" + querystring;
+		}
 	}
 	catch(e){
 		return "Username or Password is Incorrect!\n" + querystring;
 	}
 }
-
-
 app.listen(PORT, () => {
   console.log('listening on: ' + PORT);
 })
