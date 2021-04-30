@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SQLi Injection PoC App</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>  
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- don't want to download and host jQuery self, so included it from a CDN; Google hosts JQuery, all good--> 
+    <script src="./src/brokenapp.js"></script>
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <div class="container"> 
+      <div class="app-wrapper">
+        <div class="sqli-app">
+          <form id="search-form" class="mb-3" onsubmit="return false"> <!--input validation now working with addition of return false onsubmit-->
+            <div class="row">
+              <div class="col-9">
+                <input
+                  type="text"
+                  placeholder="Enter your email"
+                  class="form-control"
+                  id="email-input"
+                  autocomplete="off"             
+                />             
+                <input
+                type="password"
+                placeholder="Enter your password"
+                class="form-control"
+                id="password-input"
+                autocomplete="off"
+              />
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Submit" 
+                  class="btn btn-primary w-100"
+                  id="add-row"
+                  onclick="addRow()"
+                />
+                <small id="emailHelp" class="form-text text-muted">We'll never share your credentials with anyone else.</small>   
+              </div>
+            </div>
+          </form>
+          <br>
+          <div class="response-table">
+            <h1 id="table-title">Responses Go Here</h1>
+            <!-- Records Table START-->
+                <table id="appendTable" class="table table-bordered table-hover table-striped">
+                    <thead>
+                    <tr>
+                    <th>Action</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    </tr>
+                    <tbody>
+                      <tr>
+                      </tr>
+                      </tbody>
+                    </table>
+            <!-- Records table END-->
+          </div>
+          <div class="overview">
+            <br>
+            <ul>
+        <small>
+          <a href="https://github.com/corti64/SQLi-PoC"
+            >Open-source code</a
+          >, by Christen Orticari
+        </small>
+      </div>
+    </div>
+  </body>
+</html>
