@@ -1,0 +1,13 @@
+CREATE TABLE people
+(
+  id              INT unsigned NOT NULL AUTO_INCREMENT, # Unique ID
+  name            VARCHAR(150) NOT NULL,                # username
+  owner           VARCHAR(150) NOT NULL,                # pass
+  PRIMARY KEY     (id)                                  # Make the id the primary key
+);
+
+INSERT INTO people ( name, password) VALUES
+  ( 'bob', 'password1');
+
+INSERT INTO people ( name, password) VALUES
+  ( 'alice', 'password2');
