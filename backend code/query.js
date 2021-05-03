@@ -1,8 +1,7 @@
 // NPM Library Inclusions!
 const mysql = require('mysql'); // To make MySQL Connections : 
 const { makeDb } = require('mysql-async-simple'); // Lib to solve the async issues with MySql : https://github.com/hashgit/mysql-async-simple
-const express = require('express'); // To do different things depending on where the user visits : https://www.npmjs.com/p
-ackage/express
+const express = require('express'); // To do different things depending on where the user visits : https://www.npmjs.com/package/express
 const cors = require('cors');
 const dotenv = require('dotenv'); // Needed to use an .env file for MySQL!
 dotenv.config()
@@ -23,7 +22,7 @@ app.get('/', (req, res) => {
 })
 async function mysqlwork(user, password) { // Must by asynchronous, otherwise the function returns before the query is complete! 
         // MySQL Setup
-        const con = mysql.createConnection({host: 'localhost', user: 'root', password: '9PD5uKkSkA3HgvXy', database: "users"});
+        const con = mysql.createConnection({host: 'localhost', user: 'root', password: process.env.DATABASE_PASSWORD, database: 'users'});
         var querystring = "SELECT * FROM people WHERE name = '" + user + "' AND password = '" + password + "'";
         const db = makeDb();
         await db.connect(con);
