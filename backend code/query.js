@@ -36,7 +36,7 @@ async function mysqlwork(user, password) { // Must by asynchronous, otherwise th
                 await db.close(con);
         }
         try{ // TODO: Support multiple entries so that we can print all values maybe?
-                if (typeof result[0].name !== 'undefined' && typeof result[0].name !== 'undefined'){
+                if (typeof result[0].name !== 'undefined'){
                         return "User: " + user  + " logged in with Password: " + password +  ".\n" + querystring;
                 }
         }
